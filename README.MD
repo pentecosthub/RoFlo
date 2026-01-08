@@ -6,7 +6,7 @@ This fork focuses on maintaining existing functionality while reducing hard-code
 
 ## Project History (Inherited from PiRowFlo)
 
-31.03.2025: Merged with elp3dr0 to fix compatibility with modern Raspberry Pi OS  
+31.03.2025: Merged with elp3dr0 to fix compatibility with modern Raspberry Pi OS
 14.11.2021: Fixed pip install issue with pyusb in requirements.txt
 
 <img src="docs/logo/PIROWFLO2.png" width="36%" height="36%">
@@ -21,7 +21,7 @@ Read the LICENCE first. By using this software you agree to the licence.
 
 ## News (13.02.2021)
 
-- Case is still in prototype stage
+* Case is still in prototype stage
 
 ## Supported Apps S4 Monitor (23.02.2021)
 
@@ -45,15 +45,14 @@ Read the LICENCE first. By using this software you agree to the licence.
 
 ## Features
 
-- Read serial WaterRower data via USB
-- Read SmartRow data via Bluetooth Low Energy
-- Broadcast rowing data over Bluetooth Low Energy
-- Broadcast rowing data over ANT+ using compatible dongles
+* Read serial WaterRower data via USB
+* Read SmartRow data via Bluetooth Low Energy
+* Broadcast rowing data over Bluetooth Low Energy
+* Broadcast rowing data over ANT+ using compatible dongles
 
 ## Bluetooth Requirements
 
-RoFlo requires a working Bluetooth Low Energy (BLE) adapter.  
-This may be provided by built-in Bluetooth hardware or a compatible USB Bluetooth adapter.
+RoFlo requires a working Bluetooth Low Energy (BLE) adapter. This may be provided by built-in Bluetooth hardware or a compatible USB Bluetooth adapter.
 
 Multiple Bluetooth adapters may be required depending on usage and hardware configuration, particularly when using SmartRow and BLE broadcasting simultaneously.
 
@@ -69,8 +68,7 @@ The original motivation of PiRowFlo was to enable compatibility between WaterRow
 
 ### Hardware
 
-RoFlo does not require Raspberry Pi hardware specifically.  
-Any Linux-based system capable of USB, Bluetooth Low Energy, and optional ANT+ support may be used, including Raspberry Pi devices, thin clients, mini PCs, or other microcomputers.
+RoFlo does not require Raspberry Pi hardware specifically. Any Linux-based system capable of USB, Bluetooth Low Energy, and optional ANT+ support may be used, including Raspberry Pi devices, thin clients, mini PCs, or other microcomputers.
 
 ### Software
 
@@ -78,5 +76,89 @@ Any Linux-based system capable of USB, Bluetooth Low Energy, and optional ANT+ s
 
 On a fresh Linux installation, ensure git is installed:
 
-```bash
+```
 sudo apt-get install git
+```
+
+Clone the repository:
+
+```
+git clone https://github.com/pentecosthub/RoFlo.git
+cd RoFlo
+```
+
+Make the install script executable:
+
+```
+sudo chmod +x install.sh
+```
+
+Run the installer:
+
+```
+sudo ./install.sh
+```
+
+Reboot after installation completes.
+
+### Getting Started
+
+RoFlo exposes a web interface on port 9001:
+
+```
+http://<device-ip>:9001
+```
+
+RoFlo can also be started from the console:
+
+```
+venv/bin/python3 src/waterrowerthreads.py -h
+```
+
+Example usage:
+
+```
+venv/bin/python3 src/waterrowerthreads.py -i s4 -b -a
+```
+
+## Manual Update
+
+RoFlo does not currently support automatic updates.
+
+```
+git pull
+sudo ./install.sh
+```
+
+## FAQ
+
+### Serial open error waiting
+
+Ensure your user belongs to the dialout group:
+
+```
+sudo usermod -a -G dialout $USER
+```
+
+Log out or reboot for changes to take effect.
+
+### Bluetooth permission errors
+
+Ensure your user belongs to the bluetooth group:
+
+```
+sudo usermod -a -G bluetooth $USER
+```
+
+Reboot after applying.
+
+## Code Attribution
+
+RoFlo is based on code from the following projects:
+
+* [https://github.com/bfritscher/waterrower](https://github.com/bfritscher/waterrower)
+* [https://github.com/PunchThrough/espresso-ble](https://github.com/PunchThrough/espresso-ble)
+* [https://github.com/WouterJD/FortiusANT](https://github.com/WouterJD/FortiusANT)
+* [https://github.com/techdiem/RasPi-OLED-Menu](https://github.com/techdiem/RasPi-OLED-Menu)
+
+These projects provided foundational components that were adapted and rewritten for PiRowFlo and now RoFlo.
