@@ -1,6 +1,6 @@
-# RoFlo
+# RowFlo
 
-RoFlo is a device-neutral fork of PiRowFlo.
+RowFlo is a device-neutral fork of PiRowFlo.
 
 This fork focuses on maintaining existing functionality while reducing hard-coded Raspberry Pi assumptions, improving installation documentation, and increasing portability across Linux-based systems.
 
@@ -52,13 +52,13 @@ Read the LICENCE first. By using this software you agree to the licence.
 
 ## Bluetooth Requirements
 
-RoFlo requires a working Bluetooth Low Energy (BLE) adapter. This may be provided by built-in Bluetooth hardware or a compatible USB Bluetooth adapter.
+RowFlo requires a working Bluetooth Low Energy (BLE) adapter. This may be provided by built-in Bluetooth hardware or a compatible USB Bluetooth adapter.
 
 Multiple Bluetooth adapters may be required depending on usage and hardware configuration, particularly when using SmartRow and BLE broadcasting simultaneously.
 
 ## Motivation
 
-The original motivation of PiRowFlo was to enable compatibility between WaterRower hardware, third-party training applications, and fitness devices such as Garmin watches. RoFlo preserves this goal while working toward broader Linux compatibility and clearer installation processes.
+The original motivation of PiRowFlo was to enable compatibility between WaterRower hardware, third-party training applications, and fitness devices such as Garmin watches. RowFlo preserves this goal while working toward broader Linux compatibility and clearer installation processes.
 
 ## Target Architecture
 
@@ -68,7 +68,7 @@ The original motivation of PiRowFlo was to enable compatibility between WaterRow
 
 ### Hardware
 
-RoFlo does not require Raspberry Pi hardware specifically. Any Linux-based system capable of USB, Bluetooth Low Energy, and optional ANT+ support may be used, including Raspberry Pi devices, thin clients, mini PCs, or other microcomputers.
+RowFlo does not require Raspberry Pi hardware specifically. Any Linux-based system capable of USB, Bluetooth Low Energy, and optional ANT+ support may be used, including Raspberry Pi devices, thin clients, mini PCs, or other microcomputers.
 
 ### Software
 
@@ -83,8 +83,8 @@ sudo apt-get install git
 Clone the repository:
 
 ```
-git clone https://github.com/pentecosthub/RoFlo.git
-cd RoFlo
+git clone https://github.com/pentecosthub/RowFlo.git
+cd RowFlo
 ```
 
 Make the install script executable:
@@ -103,13 +103,13 @@ Reboot after installation completes.
 
 ### Getting Started
 
-RoFlo exposes a web interface on port 9001:
+RowFlo exposes a web interface on port 9001:
 
 ```
 http://<device-ip>:9001
 ```
 
-RoFlo can also be started from the console:
+RowFlo can also be started from the console:
 
 ```
 venv/bin/python3 src/waterrowerthreads.py -h
@@ -123,7 +123,7 @@ venv/bin/python3 src/waterrowerthreads.py -i s4 -b -a
 
 ## Manual Update
 
-RoFlo does not currently support automatic updates.
+RowFlo does not currently support automatic updates.
 
 ```
 git pull
@@ -154,11 +154,11 @@ Reboot after applying.
 
 ## Code Attribution
 
-RoFlo is based on code from the following projects:
+RowFlo is based on code from the following projects:
 
 * [https://github.com/bfritscher/waterrower](https://github.com/bfritscher/waterrower)
 * [https://github.com/PunchThrough/espresso-ble](https://github.com/PunchThrough/espresso-ble)
 * [https://github.com/WouterJD/FortiusANT](https://github.com/WouterJD/FortiusANT)
 * [https://github.com/techdiem/RasPi-OLED-Menu](https://github.com/techdiem/RasPi-OLED-Menu)
 
-These projects provided foundational components that were adapted and rewritten for PiRowFlo and now RoFlo.
+These projects provided foundational components that were adapted and rewritten for PiRowFlo and now RowFlo.
